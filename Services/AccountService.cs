@@ -70,6 +70,7 @@ namespace Task9Identity.Services
             var role = await _roleManager.FindByNameAsync("Admin");
             if (role == null)
             {
+                await this.CreateRole(new CreateRoleVM() { RoleName = "Admin" });
                 var user =await _userManager.FindByIdAsync(userId);
                 await _userManager.AddToRoleAsync(user, "Admin");
             }
