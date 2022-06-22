@@ -1,0 +1,73 @@
+﻿@model Task9Identity.Models.VMs.EditRoleVM
+
+
+<h2>Edit Role [@Model.Role.Name]</h2>
+<br />
+<div class="row">
+    <div class="col-md-8">
+    
+        <div class="form-group">
+            <table class="table" width="100%">
+                <thead>
+                    <tr>
+                        <th>
+                            <h3> All Users In the System:</h3>
+                        </th>
+                        <th>
+                            <h3>Users In the Role:</h3>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-md-6">
+
+                            @foreach (var user in Model.AllUsers)
+                            {
+
+                                <a type="submit" asp-route-userId="@user.Id" asp-route-roleId="@Model.Role.Id" class="form-control" asp-action="AddToRole">@user.UserName [✓]</a>
+
+                            }
+
+                        </td>
+                        <td class="col-md-6">
+
+
+
+
+                            @foreach (var user in Model.UsersInRole)
+                            {
+
+                                <a type="submit" asp-route-userId="@user.Id" asp-route-roleId="@Model.Role.Id" class="form-control" asp-action="RemoveFromRole">@user.UserName [✘]</a>
+
+                            }
+
+
+
+
+                        </td>
+                    </tr>
+
+
+
+
+                </tbody>
+
+
+            </table>
+
+
+        </div>
+
+    </div>
+</div>
+
+<div>
+    @*<a asp-page="./Index">Back to List</a>*@
+</div>
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

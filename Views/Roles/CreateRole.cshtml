@@ -1,0 +1,24 @@
+﻿@model Task9Identity.Models.VMs.CreateRoleVM
+<h2>Create Role</h2>
+
+
+<div class=" offset-md-1 col-md-7">
+    <form method="post">
+        <h4>Use your credentials to login</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly"></div>
+
+        <div class="form-group row">
+            <label asp-for="RoleName" class="col-md-3"></label>
+            <div class="col-md-7">
+                <input asp-for="RoleName" class="form-control" />
+                <span asp-validation-for="RoleName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="">
+            <input type="submit" value="Create Role" class="form-control col-md-4 offset-md-3 btn-outline-primary btn-sm" />
+        </div>
+
+    </form>
+</div>
